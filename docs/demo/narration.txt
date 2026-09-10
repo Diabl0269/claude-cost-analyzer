@@ -1,47 +1,22 @@
-# Claude Cost Analyzer — demo narration
-# voice: Samantha · rate 178 wpm · planned total 97.1s
-
-[0.0s · 8.1s] intro
-Claude Cost Analyzer prices every token Claude Code spends — on your own machine, from the transcripts it already writes.
-
-[8.1s · 8.9s] overview-kpis
-The overview opens on the money: spend, requests, cache hit ratio, cost per prompt. Every number says how it was computed.
-
-[17.0s · 6.0s] overview-breakdown
-The same total, split by model and by project.
-
-[23.0s · 7.6s] sessions
-The ledger lists every session with its cost, and checks each one against Claude Code’s own tally. Open the most expensive.
-
-[30.6s · 8.0s] session-summary
-A session is a receipt: exact token costs, where the work happened, and every request as a waterfall.
-
-[38.6s · 7.0s] session-transcript
-The transcript prices the conversation turn by turn. Every tool call carries its own estimate.
-
-[45.6s · 5.0s] session-agents
+Claude Cost Analyzer prices every token Claude Code spends.
+Spend, requests, cache hit ratio, cost per prompt.
+The daily strip shows which days cost what.
+The same total, split by model, and by project.
+The ledger lists every session with its cost.
+Each row is checked against Claude Code's own reported tally.
+Open the most expensive one.
+A session is a receipt, with exact per model token costs.
+Every request charted, and what filled the context.
+The transcript prices the conversation turn by turn.
+Every tool call carries its own estimated cost.
 Subagents and workflow runs get their own tree, priced separately.
-
-[50.6s · 4.8s] session-hooks
-Hooks and harness injections are priced too — the tokens nobody typed.
-
-[55.5s · 7.5s] search
-Full-text search runs over every indexed transcript, with the match highlighted in place.
-
-[63.0s · 6.0s] analytics-tools
-Analytics rolls it up by tool, by model and by hook.
-
-[69.0s · 5.5s] insights
-Insights turns it into findings, ranked by the money at stake.
-
-[74.5s · 7.5s] settings-pricing
-Prices are editable. Money is computed at read time, so a new rate re-prices your whole history instantly.
-
-[82.0s · 5.0s] palette
-Command-K reaches any page, session or project.
-
-[87.0s · 4.5s] theme
+Hooks and harness injections are priced too. The tokens nobody typed.
+Full text search runs over every indexed transcript.
+Matches are highlighted in place.
+Analytics rolls it up by tool, and marks the estimated part.
+Insights ranks findings by the money at stake, from savings to waste.
+Prices are editable, and a new rate re-prices your whole history.
+And every method is written down.
+Command K reaches any page, session or project.
 And it reads the same in slate as on paper.
-
-[91.5s · 5.6s] outro
 Local, private, exact. One command, no account, no key.

@@ -134,3 +134,7 @@ slot — `holdUntilEnd()` idles out whatever is left, and starting late is logge
 > animating it inline. The shipped `docs/demo/demo.gif` was re-encoded from `demo.mp4` at 820 px,
 > 10 fps, first 26 s (`ffmpeg -t 26 -i demo.mp4 -vf "fps=10,scale=820:-1,split[a][b];[a]palettegen=stats_mode=diff[p];[b][p]paletteuse=dither=sierra2_4a"`);
 > pass `--gif-seconds 26 --gif-width 820` or re-encode the same way after a new recording.
+
+> The recording that ships in `docs/demo/` may come from any screen-recording pipeline that follows
+> the same tour; `scripts/demo-video.ts` is the reproducible in-repo path and produces equivalent
+> output (mp4, gif, poster, narration).
