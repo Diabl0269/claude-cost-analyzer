@@ -1,0 +1,29 @@
+.anchor {
+  display: inline-flex;
+  max-width: 100%;
+}
+
+.bubble {
+  position: fixed;
+  z-index: 80;
+  padding: var(--s2) var(--s3);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+  color: var(--ink);
+  font-size: var(--fs-12);
+  line-height: 1.4;
+  box-shadow: var(--elevation);
+  animation: tooltip-in var(--dur-fast) var(--ease);
+}
+
+.bubble :global(.num) {
+  font-size: var(--fs-12);
+}
+
+@keyframes tooltip-in {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+}

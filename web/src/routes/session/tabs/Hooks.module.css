@@ -1,0 +1,35 @@
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+}
+
+.muted {
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+  line-height: var(--lh-body);
+}
+
+.bad {
+  color: var(--cost);
+}
+
+.costCell {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: var(--s1);
+}
+
+.errors {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+  font-size: var(--fs-13);
+}
+
+.errors li {
+  display: flex;
+  gap: var(--s3);
+  padding: var(--s1) 0;
+  border-bottom: 1px solid var(--rule);
+}

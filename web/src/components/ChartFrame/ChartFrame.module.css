@@ -1,0 +1,88 @@
+.frame {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  min-width: 0;
+}
+
+/* Title left, legend centre-right, view toggle far right — one row, one baseline. */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s2) var(--s4);
+  flex-wrap: wrap;
+  min-height: 26px;
+}
+
+.caption {
+  font-family: var(--font-ui);
+  font-size: var(--fs-12);
+  font-weight: 560;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+/* A caption may carry the section's own heading; it keeps its display type, not the eyebrow's. */
+.caption h2,
+.caption h3 {
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+
+.caption h2 {
+  font-size: var(--fs-20);
+}
+
+.caption h3 {
+  font-size: var(--fs-16);
+}
+
+.captionHeading {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--s3);
+  min-width: 0;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--s1) var(--s4);
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: var(--fs-12);
+  color: var(--ink-2);
+}
+
+.legend p {
+  margin: 0;
+}
+
+.tools {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  flex: none;
+  margin-left: auto;
+}
+
+.body {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .legend {
+    order: 3;
+    flex-basis: 100%;
+    justify-content: flex-start;
+  }
+}

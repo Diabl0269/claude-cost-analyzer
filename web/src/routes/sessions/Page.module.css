@@ -1,0 +1,164 @@
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--s4);
+  flex-wrap: wrap;
+}
+
+.headTotals {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s2);
+  color: var(--ink-3);
+  font-size: var(--fs-13);
+}
+
+.headMoney {
+  font-size: var(--fs-28);
+  color: var(--ink);
+}
+
+.titleCell {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s2);
+  min-width: 0;
+}
+
+.titleLink {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.titleLink:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.titleMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s1);
+  flex: none;
+}
+
+.chain {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--ink-2);
+  font-size: var(--fs-12);
+  text-decoration: none;
+}
+
+.chain:hover {
+  color: var(--info);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.time {
+  color: var(--ink-2);
+  font-size: var(--fs-13);
+}
+
+.models {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.more {
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}
+
+.zero {
+  color: var(--ink-3);
+}
+
+.costCell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--s1);
+}
+
+.cost {
+  font-weight: 560;
+  color: var(--ink);
+}
+
+.unpriced {
+  display: inline-flex;
+  color: var(--warn);
+}
+
+.footerLabel {
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}
+
+/* Links inherit `color` from base.css, and --ink-3 on the footer is too quiet to read as one.
+   Underlined so colour is not the only signal. */
+.footerLink {
+  color: var(--ink-2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.loadMore {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--s2);
+}
+
+.titleCell {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  /* The cell fills whatever the column was given: the column's own width (computed in
+     `Page.tsx` from the measured table) is what stops `table-layout: auto` from letting a long
+     title push the money columns off the right edge. */
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  padding: 4px 0;
+}
+
+.titleLine {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  width: 100%;
+  min-width: 0;
+}
+
+/* The title yields; the badges after it never get clipped. */
+.titleLine > *:not(.titleLink) {
+  flex: 0 0 auto;
+}
+
+.subLine {
+  /* A flex item with `min-width: auto` reports its whole text as a minimum, which is what used
+     to keep the title column wider than the width it was given. */
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+  line-height: 1.35;
+}
+
+.branch {
+  color: var(--ink-3);
+}
+

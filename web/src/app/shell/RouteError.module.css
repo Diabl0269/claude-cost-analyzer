@@ -1,0 +1,21 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+  max-width: 60ch;
+  padding: var(--s8) 0;
+}
+
+.title {
+  font-size: var(--fs-28);
+}
+
+.actions {
+  display: flex;
+  gap: var(--s2);
+}
+
+.hint {
+  font-size: var(--fs-13);
+  color: var(--ink-3);
+}

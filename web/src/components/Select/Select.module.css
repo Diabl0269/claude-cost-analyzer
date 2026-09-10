@@ -1,0 +1,59 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.label {
+  font-size: var(--fs-12);
+  font-weight: 520;
+  color: var(--ink-2);
+}
+
+.control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+}
+
+.control:focus-within {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+}
+
+.select {
+  appearance: none;
+  width: 100%;
+  min-height: 26px;
+  padding: 0 26px 0 var(--s2);
+  border: 0;
+  background: none;
+  font-size: var(--fs-12);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.md .select {
+  min-height: 32px;
+  font-size: var(--fs-13);
+}
+
+.select:focus {
+  outline: none;
+}
+
+.chevron {
+  position: absolute;
+  right: var(--s2);
+  color: var(--ink-3);
+  pointer-events: none;
+}
+
+.hint {
+  font-size: var(--fs-12);
+  color: var(--ink-3);
+}

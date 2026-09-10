@@ -1,0 +1,187 @@
+.wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  flex-wrap: wrap;
+}
+
+.presets {
+  display: inline-flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+  overflow: hidden;
+}
+
+.preset {
+  min-height: 26px;
+  padding: 0 var(--s2);
+  border-right: 1px solid var(--rule);
+  font-size: var(--fs-12);
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+.preset:last-child {
+  border-right: 0;
+}
+
+.preset:hover {
+  background: var(--paper-3);
+  color: var(--ink);
+}
+
+.preset[aria-pressed='true'] {
+  background: var(--ink);
+  color: var(--paper-2);
+}
+
+.bounds {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+  gap: var(--s1);
+}
+
+/* The native date control, dressed to match the rest of the ledger: our mono figures,
+   our hairline, our palette (color-scheme is inherited from [data-theme], never forced),
+   and a plain ink calendar affordance instead of the browser's blue chrome. */
+.date {
+  min-width: 0;
+  min-height: 26px;
+  padding: 0 var(--s1) 0 var(--s2);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  font-variant-numeric: tabular-nums slashed-zero;
+  line-height: 1;
+}
+
+.date:hover {
+  border-color: var(--ink-3);
+}
+
+.date::-webkit-datetime-edit {
+  padding: 0;
+  color: var(--ink);
+}
+
+.date::-webkit-datetime-edit-fields-wrapper {
+  padding: 0;
+}
+
+.date:invalid::-webkit-datetime-edit,
+.date:not(:focus)::-webkit-datetime-edit-text {
+  color: var(--ink-3);
+}
+
+.date::-webkit-datetime-edit-year-field:focus,
+.date::-webkit-datetime-edit-month-field:focus,
+.date::-webkit-datetime-edit-day-field:focus {
+  background: var(--selection);
+  color: var(--ink);
+  border-radius: var(--r1);
+}
+
+.date::-webkit-calendar-picker-indicator {
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  margin-left: var(--s1);
+  opacity: 0.55;
+  cursor: pointer;
+  /* an ink calendar glyph, recoloured with the theme via the filter below */
+  filter: grayscale(1);
+}
+
+.date::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+:global([data-theme='slate']) .date::-webkit-calendar-picker-indicator {
+  filter: grayscale(1) invert(1);
+}
+
+.dash {
+  color: var(--ink-3);
+}
+
+/* ── Compact form: one button, presets and bounds in a popover ─────────── */
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: 26px;
+  max-width: 200px;
+  padding: 0 var(--s2);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+  font-size: var(--fs-12);
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.trigger:hover {
+  background: var(--paper-3);
+}
+
+.triggerLabel {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.triggerCaret {
+  flex: none;
+  color: var(--ink-3);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+}
+
+/* The window in words, so the popover states what the presets below are about to change. */
+.panelRange {
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  font-variant-numeric: tabular-nums slashed-zero;
+  color: var(--ink-2);
+}
+
+.panel .presets {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-radius: var(--r2);
+}
+
+.panel .preset {
+  border-bottom: 1px solid var(--rule);
+}
+
+.panel .preset:nth-child(3n) {
+  border-right: 0;
+}
+
+.panel .preset:nth-last-child(-n + 3) {
+  border-bottom: 0;
+}
+
+.panel .bounds {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--s2);
+}
+
+.panel .date {
+  width: 100%;
+}

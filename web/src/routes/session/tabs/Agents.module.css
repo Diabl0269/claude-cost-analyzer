@@ -1,0 +1,49 @@
+.nameCell {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s2);
+  min-width: 0;
+}
+
+.icon {
+  flex: none;
+  color: var(--ink-3);
+  transform: translateY(2px);
+}
+
+.type,
+.runName {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  color: var(--ink);
+}
+
+.note {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}
+
+.failed {
+  color: var(--cost);
+}
+
+.models {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s1);
+  flex-wrap: wrap;
+}
+
+.requested {
+  color: var(--warn);
+  font-size: var(--fs-12);
+}
+
+.strong {
+  font-weight: 560;
+  color: var(--ink);
+}

@@ -1,0 +1,21 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  padding: 0 5px;
+  border: 1px dashed var(--rule-strong);
+  border-radius: var(--r1);
+  color: var(--ink-3);
+  font-family: var(--font-ui);
+  font-size: var(--fs-12);
+  font-weight: 560;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  text-decoration: none;
+  cursor: help;
+}
+
+.md {
+  height: 20px;
+  font-size: var(--fs-13);
+}

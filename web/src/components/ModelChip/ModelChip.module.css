@@ -1,0 +1,60 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  max-width: 100%;
+  padding: 1px 6px 1px 5px;
+  border: 1px solid color-mix(in srgb, currentColor 34%, transparent);
+  border-radius: var(--r2);
+  background: color-mix(in srgb, currentColor 8%, transparent);
+  font-size: var(--fs-12);
+  font-weight: 520;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.chip[data-family='opus'] {
+  color: var(--m-opus);
+}
+
+.chip[data-family='sonnet'] {
+  color: var(--m-sonnet);
+}
+
+.chip[data-family='haiku'] {
+  color: var(--m-haiku);
+}
+
+.chip[data-family='fable'] {
+  color: var(--m-fable);
+}
+
+.chip[data-family='mythos'] {
+  color: var(--m-mythos);
+}
+
+.chip[data-family='other'],
+.chip[data-family='synthetic'] {
+  color: var(--m-other);
+}
+
+.md {
+  font-size: var(--fs-13);
+  padding: 2px 8px 2px 6px;
+}
+
+.glyphOnly {
+  padding: 2px;
+  width: 18px;
+  height: 18px;
+  justify-content: center;
+}
+
+.text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.glyph {
+  flex: none;
+}

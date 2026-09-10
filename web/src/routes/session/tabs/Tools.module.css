@@ -1,0 +1,92 @@
+.nameCell {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  min-width: 0;
+}
+
+.agent {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  flex: none;
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}
+
+.error {
+  flex: none;
+  padding: 0 4px;
+  border: 1px solid color-mix(in srgb, var(--cost) 40%, var(--rule));
+  border-radius: var(--r1);
+  color: var(--cost);
+  font-size: var(--fs-12);
+}
+
+.muted {
+  color: var(--ink-3);
+}
+
+.result {
+  color: var(--ink-2);
+}
+
+.ownCell {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: var(--s1);
+}
+
+.strong {
+  font-weight: 560;
+  color: var(--ink);
+}
+
+.filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 var(--s2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+  color: var(--ink-3);
+}
+
+.filterInput {
+  width: 200px;
+  height: 26px;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--fs-13);
+  outline-offset: 2px;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}
+
+.input {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 280px;
+  color: var(--ink-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+}
+
+@media (max-width: 900px) {
+  .input {
+    max-width: 160px;
+  }
+}

@@ -1,0 +1,120 @@
+.receipt {
+  font-size: var(--fs-13);
+}
+
+.caption {
+  margin-bottom: var(--s2);
+  font-family: var(--font-ui);
+  font-size: var(--fs-12);
+  font-weight: 560;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s2);
+  padding: 5px 0;
+  min-height: 26px;
+}
+
+.dense .row {
+  padding: 2px 0;
+  min-height: 22px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  color: var(--ink-2);
+}
+
+.labelText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.note {
+  font-size: var(--fs-12);
+  color: var(--ink-3);
+}
+
+/* The dotted leader: a repeating dot mask that fills whatever space is left. */
+.leader {
+  flex: 1 1 auto;
+  min-width: var(--s5);
+  height: 1px;
+  align-self: baseline;
+  transform: translateY(-3px);
+  background-image: radial-gradient(circle, var(--rule-strong) 0.7px, transparent 0.75px);
+  background-size: 5px 2px;
+  background-repeat: repeat-x;
+  background-position: 0 center;
+}
+
+.value {
+  flex: none;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums slashed-zero;
+}
+
+.row[data-emphasis='muted'] .label,
+.row[data-emphasis='muted'] .value {
+  color: var(--ink-3);
+}
+
+.row[data-emphasis='subtotal'] {
+  border-top: 1px solid var(--rule);
+  margin-top: var(--s1);
+  padding-top: var(--s2);
+}
+
+.row[data-emphasis='subtotal'] .label,
+.row[data-emphasis='subtotal'] .value {
+  color: var(--ink);
+  font-weight: 560;
+}
+
+.row[data-emphasis='total'] {
+  border-top: 1px solid var(--rule-strong);
+  margin-top: var(--s2);
+  padding-top: var(--s3);
+  align-items: baseline;
+}
+
+.row[data-emphasis='total'] .labelText {
+  font-weight: 560;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: var(--fs-12);
+}
+
+.row[data-emphasis='total'] .value {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 144, 'SOFT' 30, 'WONK' 0;
+  font-size: var(--fs-20);
+  line-height: 1;
+}
+
+.row[data-emphasis='total'] .value :global(.num) {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.footer {
+  margin-top: var(--s3);
+  padding-top: var(--s2);
+  border-top: 1px solid var(--rule);
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}

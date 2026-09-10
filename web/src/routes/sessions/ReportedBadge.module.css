@@ -1,0 +1,68 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 100%;
+  padding: 1px 6px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  background: var(--paper);
+  color: var(--ink-2);
+  font-size: var(--fs-12);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.badge[data-tone='match'] {
+  color: var(--save);
+  border-color: color-mix(in srgb, var(--save) 40%, var(--rule));
+}
+
+.badge[data-tone='warn'] {
+  color: var(--warn);
+  border-color: color-mix(in srgb, var(--warn) 40%, var(--rule));
+}
+
+.glyph {
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+}
+
+.none {
+  color: var(--ink-3);
+}
+
+/* Column header: the label plus the info trigger that carries the key to the four badges. */
+.header {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.info {
+  display: inline-flex;
+  color: var(--ink-3);
+  border-radius: var(--r1);
+}
+
+.info:hover {
+  color: var(--ink);
+}
+
+.keyLead {
+  margin: 0 0 var(--s2);
+}
+
+.key {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  white-space: normal;
+}
+
+.key b {
+  font-weight: 600;
+}

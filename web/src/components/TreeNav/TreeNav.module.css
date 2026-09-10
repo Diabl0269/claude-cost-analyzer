@@ -1,0 +1,86 @@
+.tree {
+  font-size: var(--fs-13);
+}
+
+.group {
+  position: relative;
+}
+
+.group::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--s3) + 1px);
+  width: 1px;
+  background: var(--rule);
+}
+
+.item {
+  border-radius: var(--r2);
+  color: var(--ink-2);
+  cursor: pointer;
+}
+
+.item:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+}
+
+.rowInner {
+  display: flex;
+  align-items: center;
+  gap: var(--s1);
+  min-height: 26px;
+  padding-right: var(--s2);
+  border-radius: var(--r2);
+}
+
+.item > .rowInner:hover {
+  background: var(--paper-3);
+  color: var(--ink);
+}
+
+.dense .rowInner {
+  min-height: 22px;
+}
+
+.selected > .rowInner {
+  background: color-mix(in srgb, var(--info) 12%, transparent);
+  color: var(--ink);
+  font-weight: 520;
+}
+
+.twisty {
+  flex: none;
+  width: 12px;
+  color: var(--ink-3);
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.twistySpacer {
+  flex: none;
+  width: 12px;
+}
+
+.icon {
+  flex: none;
+  color: var(--ink-3);
+}
+
+.label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* --ink-2, not --ink-3: the meta column also renders on the selected row's tinted
+   background, where --ink-3 measures 4.32:1 and fails WCAG AA for small text. */
+.meta {
+  flex: none;
+  color: var(--ink-2);
+  font-size: var(--fs-12);
+  font-variant-numeric: tabular-nums slashed-zero;
+}

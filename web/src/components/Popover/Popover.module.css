@@ -1,0 +1,17 @@
+.panel {
+  position: fixed;
+  z-index: 90;
+  padding: var(--s3);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+  box-shadow: var(--elevation);
+  animation: pop var(--dur-fast) var(--ease);
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+}

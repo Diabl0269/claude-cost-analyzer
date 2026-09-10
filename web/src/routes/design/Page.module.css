@@ -1,0 +1,226 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s8);
+  max-width: var(--content-max);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s6);
+  flex-wrap: wrap;
+}
+
+.lede {
+  max-width: 62ch;
+  margin-top: var(--s2);
+  color: var(--ink-2);
+}
+
+.toc {
+  position: sticky;
+  top: var(--topbar-h);
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1) var(--s4);
+  padding: var(--s2) 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+/* min-height keeps each link a 24px target once the row wraps (WCAG 2.2 2.5.8). */
+.tocLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  font-size: var(--fs-12);
+  color: var(--ink-3);
+}
+
+.tocLink:hover {
+  color: var(--ink);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+  scroll-margin-top: calc(var(--topbar-h) + 44px);
+}
+
+.sectionHead {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s4);
+  flex-wrap: wrap;
+  padding-bottom: var(--s2);
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.sectionNote {
+  font-size: var(--fs-12);
+  color: var(--ink-3);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: var(--s4);
+  align-items: start;
+  padding: var(--s2) 0;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.rowLabel {
+  font-size: var(--fs-12);
+  color: var(--ink-3);
+  padding-top: 5px;
+}
+
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s1);
+  }
+}
+
+.rowBody {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s3);
+  min-width: 0;
+}
+
+.swatchGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(230px, 100%), 1fr));
+  gap: 0;
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  overflow: hidden;
+  background: var(--paper-2);
+}
+
+.swatch {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: var(--s2) var(--s3);
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: var(--fs-12);
+}
+
+.swatchChip {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--r1);
+  border: 1px solid var(--rule-strong);
+  flex: none;
+}
+
+.swatchName {
+  flex: 1 1 auto;
+  color: var(--ink-2);
+}
+
+.swatchValue {
+  color: var(--ink-3);
+  font-size: 11px;
+}
+
+.pass {
+  color: var(--save);
+}
+
+.fail {
+  color: var(--cost);
+}
+
+.typeSpecimen {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  padding: var(--s4);
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: var(--s4);
+  align-items: start;
+}
+
+.titleCell {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s1);
+  min-width: 0;
+  max-width: 100%;
+}
+
+.pin {
+  color: var(--ink-3);
+  flex: none;
+}
+
+/* --ink-3 drops under 4.5:1 on the highlighted-row tint; data values use --ink-2. */
+.deltaOk {
+  color: var(--ink-2);
+}
+
+.deltaWarn {
+  color: var(--warn);
+}
+
+.popoverTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s1);
+  min-height: 26px;
+  padding: 0 var(--s2);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+  font-size: var(--fs-12);
+  color: var(--ink-2);
+}
+
+.popoverTrigger:hover {
+  background: var(--paper-3);
+  color: var(--ink);
+}
+
+.iconGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+  gap: 0;
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  overflow: hidden;
+  background: var(--paper-2);
+}
+
+.iconCell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s1);
+  padding: var(--s3) var(--s2);
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink-2);
+}
+
+.iconName {
+  font-size: 11px;
+  color: var(--ink-3);
+}

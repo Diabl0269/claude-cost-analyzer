@@ -1,0 +1,21 @@
+.tabRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--s4);
+  flex-wrap: wrap;
+}
+
+/* `min-width: 0` so the tab strip's own horizontal scroll can take over on a narrow screen;
+   without it the flex item stays as wide as its content and the whole page scrolls sideways. */
+.tabsSlot {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.total {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s2);
+  padding-bottom: var(--s1);
+}

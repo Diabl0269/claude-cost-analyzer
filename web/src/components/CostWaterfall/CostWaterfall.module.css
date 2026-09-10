@@ -1,0 +1,129 @@
+.wrap {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+
+.gridline {
+  stroke: var(--rule);
+  stroke-dasharray: 2 3;
+}
+
+.baseline {
+  stroke: var(--rule-strong);
+}
+
+.axisLabel {
+  fill: var(--ink-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  font-variant-numeric: tabular-nums slashed-zero;
+}
+
+.bars {
+  outline: none;
+}
+
+.bar {
+  cursor: pointer;
+}
+
+.bar:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+}
+
+.bar:hover rect {
+  opacity: 0.85;
+}
+
+.selectedOutline {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1;
+}
+
+.selectionRect {
+  fill: color-mix(in srgb, var(--info) 14%, transparent);
+  stroke: color-mix(in srgb, var(--info) 45%, transparent);
+}
+
+.plotSurface {
+  fill: transparent;
+  cursor: crosshair;
+}
+
+.tooltip {
+  position: absolute;
+  top: var(--s2);
+  transform: translateX(-50%);
+  min-width: 170px;
+  padding: var(--s2) var(--s3);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+  box-shadow: var(--elevation);
+  pointer-events: none;
+  font-size: var(--fs-12);
+  z-index: 3;
+}
+
+.tooltipHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s2);
+  margin-bottom: 2px;
+  font-weight: 560;
+}
+
+.tooltipTime {
+  color: var(--ink-3);
+  font-weight: 400;
+}
+
+.tooltipList {
+  margin-top: var(--s1);
+}
+
+.tooltipRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+  padding: 1px 0;
+  color: var(--ink-2);
+}
+
+.tooltipRow dt {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tooltipTotal {
+  margin-top: 2px;
+  padding-top: 3px;
+  border-top: 1px solid var(--rule);
+  color: var(--ink);
+  font-weight: 560;
+}
+
+.swatch {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 1px;
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s1);
+}

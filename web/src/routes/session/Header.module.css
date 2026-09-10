@@ -1,0 +1,158 @@
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  padding-bottom: var(--s3);
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s4);
+  flex-wrap: wrap;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1 1 420px;
+}
+
+.title {
+  overflow-wrap: anywhere;
+}
+
+.subtitle {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  font-size: var(--fs-13);
+  color: var(--ink-3);
+}
+
+.projectLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--ink-2);
+  text-decoration: none;
+}
+
+.projectLink:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.id {
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  color: var(--ink-3);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  flex-wrap: wrap;
+}
+
+.download {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 var(--s3);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+  color: var(--ink);
+  font-size: var(--fs-13);
+  text-decoration: none;
+}
+
+.download:hover {
+  background: var(--paper-3);
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2) var(--s5);
+  padding: var(--s3) 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.fact dt {
+  font-family: var(--font-ui);
+  font-size: var(--fs-12);
+  font-weight: 560;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.fact dd {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s2);
+  font-size: var(--fs-13);
+  color: var(--ink);
+}
+
+.factValue {
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+}
+
+.active {
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2) var(--s6);
+  font-size: var(--fs-13);
+}
+
+.chain,
+.prs {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+
+.chainLink,
+.pr {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--info);
+  text-decoration: none;
+}
+
+.chainLink:hover,
+.pr:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.chainHere,
+.chainTotal {
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}

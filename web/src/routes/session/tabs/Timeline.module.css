@@ -1,0 +1,139 @@
+.wrap {
+  width: 100%;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+
+.grid {
+  stroke: var(--rule);
+  stroke-width: 1;
+}
+
+.baseline {
+  stroke: var(--rule-strong);
+  stroke-width: 1;
+}
+
+.axis {
+  fill: var(--ink-3);
+  font-size: 10px;
+}
+
+.axisNote {
+  fill: var(--ink-3);
+  font-size: 10px;
+  font-family: var(--font-ui);
+}
+
+.bar {
+  fill: var(--m-opus);
+  /* A hairline of paper between neighbours: without it two turns a second apart drew one slab. */
+  stroke: var(--paper);
+  stroke-width: 1;
+  paint-order: stroke;
+  opacity: 0.85;
+}
+
+.bar:hover {
+  opacity: 1;
+}
+
+.bar:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.idle {
+  fill: var(--warn);
+  opacity: 0.55;
+}
+
+.idleLong {
+  fill: var(--cost);
+  opacity: 0.6;
+}
+
+.tick {
+  stroke: var(--ink-3);
+  stroke-width: 1;
+  opacity: 0.5;
+}
+
+.compaction {
+  stroke: var(--warn);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 3;
+}
+
+.errorDot {
+  fill: var(--cost);
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.swatchBar,
+.swatchIdle,
+.swatchError,
+.swatchCompaction {
+  display: inline-block;
+  width: 12px;
+  height: 10px;
+  border-radius: var(--r1);
+}
+
+.swatchBar {
+  background: var(--m-opus);
+}
+
+.swatchIdle {
+  height: 5px;
+  background: var(--warn);
+  opacity: 0.55;
+}
+
+.effect {
+  color: var(--warn);
+  font-size: var(--fs-12);
+}
+
+.effect[data-long='true'] {
+  color: var(--cost);
+}
+
+.swatchError {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--cost);
+}
+
+.swatchCompaction {
+  width: 2px;
+  height: 12px;
+  background: var(--warn);
+}
+
+.note {
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}
+
+/* The label a hovered or focused turn carries. */
+.tipBox {
+  fill: var(--paper-2);
+  stroke: var(--rule-strong);
+  stroke-width: 1;
+}
+
+.tipText {
+  fill: var(--ink);
+  font-size: 10px;
+}

@@ -1,0 +1,71 @@
+{
+  "name": "claude-cost-analyzer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local cost analyzer for Claude Code conversations: every token, accounted for.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Diabl0269/claude-cost-analyzer.git"
+  },
+  "homepage": "https://github.com/Diabl0269/claude-cost-analyzer#readme",
+  "bugs": {
+    "url": "https://github.com/Diabl0269/claude-cost-analyzer/issues"
+  },
+  "engines": {
+    "node": ">=22.13 <23 || >=24"
+  },
+  "bin": {
+    "claude-cost-analyzer": "bin/cca.mjs"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "tsc -p tsconfig.node.json && vite build",
+    "start": "node dist/server/cli.js",
+    "typecheck": "tsc -p tsconfig.node.json --noEmit && tsc -p tsconfig.web.json --noEmit && tsc -p tsconfig.tests.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "npm run build && playwright test",
+    "validate": "node --import tsx/esm scripts/validate-cost-state.ts",
+    "screenshot": "node --import tsx/esm scripts/screenshot.ts",
+    "reindex": "node --import tsx/esm server/cli.ts --reindex --no-open",
+    "demo": "node scripts/demo.mjs",
+    "demo:data": "node --import tsx/esm scripts/gen-demo-data.ts",
+    "demo:video": "node --import tsx/esm scripts/demo-video.ts",
+    "check:privacy": "node scripts/check-privacy.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/fraunces": "^5.3.0",
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource-variable/geist-mono": "^5.3.0",
+    "@hono/node-server": "^1.14.0",
+    "@tanstack/react-query": "^5.90.0",
+    "@tanstack/react-virtual": "^3.13.0",
+    "d3-array": "^3.2.4",
+    "d3-scale": "^4.0.2",
+    "d3-shape": "^3.2.0",
+    "d3-time-format": "^4.1.0",
+    "hono": "^4.9.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router": "^7.9.0",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@playwright/test": "^1.55.0",
+    "@types/d3-array": "^3.2.2",
+    "@types/d3-scale": "^4.0.9",
+    "@types/d3-shape": "^3.1.7",
+    "@types/d3-time-format": "^4.0.3",
+    "@types/node": "^22.18.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "~5.9.0",
+    "vite": "^7.1.0",
+    "vitest": "^3.2.0"
+  }
+}

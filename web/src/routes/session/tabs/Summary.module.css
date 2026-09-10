@@ -1,0 +1,175 @@
+.receipts,
+.split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+  gap: var(--s4);
+  align-items: start;
+}
+
+.note {
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}
+
+.footNote {
+  display: block;
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+  line-height: var(--lh-body);
+}
+
+.strong {
+  font-weight: 560;
+}
+
+.tally {
+  margin-top: var(--s4);
+  padding-top: var(--s3);
+  border-top: 1px solid var(--rule);
+}
+
+.tallyNote {
+  margin-top: var(--s2);
+  color: var(--ink-2);
+  font-size: var(--fs-12);
+  line-height: var(--lh-body);
+}
+
+.request {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  padding: var(--s4);
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+}
+
+.requestHead {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--s3);
+}
+
+.requestSeq {
+  color: var(--ink-2);
+  font-size: var(--fs-13);
+}
+
+.jump {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  color: var(--info);
+  font-size: var(--fs-12);
+  text-decoration: none;
+}
+
+.jump:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.requestFacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2) var(--s6);
+}
+
+.requestFacts dt {
+  font-family: var(--font-ui);
+  font-size: var(--fs-12);
+  font-weight: 560;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.requestFacts dd {
+  font-size: var(--fs-13);
+  color: var(--ink);
+}
+
+.flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+
+.flag {
+  padding: 1px 6px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  color: var(--ink-2);
+  font-size: var(--fs-12);
+}
+
+.flag[data-tone='warn'] {
+  color: var(--warn);
+  border-color: color-mix(in srgb, var(--warn) 40%, var(--rule));
+}
+
+.compaction {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-bottom: var(--s2);
+  border-bottom: 1px solid var(--rule);
+}
+
+.compactionHead {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--warn);
+  font-size: var(--fs-13);
+}
+
+.driver {
+  margin-top: var(--s2);
+  color: var(--ink);
+  font-size: var(--fs-13);
+  line-height: var(--lh-body);
+}
+
+/* Label, middle-truncated path, copy — one line that stays one line. */
+.file {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  min-width: 0;
+  padding-top: var(--s1);
+  border-top: 1px dotted var(--rule);
+}
+
+.path {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ink-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+}
+
+/* Money plus its "est." badge on one baseline, so the leader dots still line up. */
+.estimated {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--s1);
+  white-space: nowrap;
+}
+
+/* The residual label doubles as the tooltip trigger explaining what is left over. */
+.residualLabel {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  cursor: help;
+}

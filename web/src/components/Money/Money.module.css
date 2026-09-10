@@ -1,0 +1,23 @@
+.money {
+  white-space: nowrap;
+}
+
+/*
+  The fraction lives in its own box so a column can reserve the widest fraction it needs
+  (`--money-frac`, set per column by LedgerTable, or the `fractionDigits` prop) and every
+  decimal point in that column lands on one vertical line. Left-aligned inside the box:
+  the box's right edge is what the cell aligns, the digits start at the point.
+*/
+.fraction {
+  display: inline-block;
+  min-width: var(--money-frac, 0px);
+  text-align: left;
+}
+
+.cost {
+  color: var(--cost);
+}
+
+.save {
+  color: var(--save);
+}

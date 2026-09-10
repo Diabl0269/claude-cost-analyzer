@@ -1,0 +1,247 @@
+.layout {
+  display: grid;
+  grid-template-columns: 208px minmax(0, 1fr);
+  gap: var(--s8);
+  align-items: start;
+  max-width: 1320px;
+}
+
+@media (max-width: 1080px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .nav {
+    position: static;
+  }
+}
+
+.nav {
+  position: sticky;
+  top: var(--s4);
+  padding-right: var(--s4);
+  border-right: 1px solid var(--rule);
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navLink {
+  display: block;
+  padding: 4px 6px;
+  border-radius: var(--r1);
+  color: var(--ink-2);
+  font-size: var(--fs-13);
+  text-decoration: none;
+}
+
+.navLink:hover {
+  background: var(--paper-3);
+  color: var(--ink);
+}
+
+.section {
+  scroll-margin-top: var(--s6);
+}
+
+.card {
+  max-width: 880px;
+  padding: var(--s4);
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+}
+
+.fields {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--s4);
+}
+
+.stackFields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  max-width: 560px;
+}
+
+/* A control that should be as wide as it needs to be, and no wider. */
+.control {
+  width: max-content;
+  max-width: 100%;
+}
+
+.textField {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.textLabel {
+  font-size: var(--fs-12);
+  font-weight: 560;
+  color: var(--ink-2);
+}
+
+.textInput {
+  height: 28px;
+  padding: 0 var(--s2);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r2);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: var(--fs-13);
+  width: 100%;
+}
+
+.cellInput {
+  height: 26px;
+  width: 100%;
+  min-width: 0;
+  padding: 0 6px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r1);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: var(--fs-12);
+}
+
+/*
+  Floors, so a narrow window makes the table scroll rather than squeezing `18.75` into `18.`
+  and the model name into nothing. The scroller above it is what handles the overflow.
+*/
+.cellText {
+  min-width: 108px;
+}
+
+/* Native spinners steal a third of a narrow cell and truncate the price. */
+.cellInput[type='number'] {
+  min-width: 48px;
+  appearance: textfield;
+  padding: 0 4px;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums slashed-zero;
+}
+
+.cellInput::-webkit-outer-spin-button,
+.cellInput::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.cellInput:hover {
+  border-color: var(--rule-strong);
+}
+
+.cellInvalid {
+  border-color: var(--cost);
+}
+
+.monoCell {
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+}
+
+.saveBar {
+  position: sticky;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s3) var(--s4);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+  box-shadow: var(--elevation);
+}
+
+.saveBarText {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: var(--fs-13);
+  color: var(--ink-2);
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: var(--s1) var(--s4);
+  font-size: var(--fs-13);
+}
+
+.metaLabel {
+  color: var(--ink-3);
+}
+
+.metaValue {
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  overflow-wrap: anywhere;
+}
+
+.rootList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.root {
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  overflow-wrap: anywhere;
+}
+
+.progressTrack {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--paper-3);
+  box-shadow: inset 0 0 0 1px var(--rule);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--info);
+}
+
+.unpricedList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+
+.unpricedItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: 2px 4px 2px 8px;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r1);
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+}
+
+.dialogFields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s3);
+}
+
+.dialogWide {
+  grid-column: 1 / -1;
+}

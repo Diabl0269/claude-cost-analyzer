@@ -1,0 +1,189 @@
+.rail {
+  display: flex;
+  flex-direction: column;
+  width: var(--rail-w);
+  flex: none;
+  border-right: 1px solid var(--rule);
+  background: var(--paper);
+  padding: var(--s3) var(--s2) 0;
+  overflow-y: auto;
+  transition: width var(--dur) var(--ease);
+}
+
+.collapsed {
+  width: var(--rail-w-collapsed);
+  padding-left: 6px;
+  padding-right: 6px;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: 30px;
+  padding: 0 var(--s2);
+  border-radius: var(--r2);
+  color: var(--ink-2);
+  font-size: var(--fs-13);
+  white-space: nowrap;
+}
+
+.collapsed .link {
+  justify-content: center;
+  padding: 0;
+  width: 32px;
+}
+
+.link:hover {
+  background: var(--paper-3);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.active {
+  background: var(--paper-3);
+  color: var(--ink);
+  font-weight: 560;
+  box-shadow: inset 2px 0 0 var(--ink);
+}
+
+.linkLabel {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.subNav {
+  display: flex;
+  flex-direction: column;
+  margin: 2px 0 var(--s1) calc(var(--s4) + 2px);
+  padding-left: var(--s2);
+  border-left: 1px solid var(--rule);
+}
+
+.subLink {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: 26px;
+  padding: 0 var(--s2);
+  border-radius: var(--r2);
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}
+
+.subLink:hover {
+  background: var(--paper-3);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.tree {
+  margin-top: var(--s5);
+  padding-top: var(--s3);
+  border-top: 1px solid var(--rule);
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.treeHead {
+  margin-bottom: var(--s2);
+  padding: 0 var(--s2);
+  font-size: var(--fs-12);
+  font-weight: 560;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.treeBody {
+  overflow-y: auto;
+  max-height: 42vh;
+}
+
+.treeLoading {
+  padding: var(--s2);
+}
+
+.treeEmpty {
+  padding: var(--s2);
+  font-size: var(--fs-12);
+  color: var(--ink-3);
+}
+
+/* Session count in front of the project's cost (SPEC §8.4). Muted and mono so the money
+   still reads first; --ink-2 because the row is tinted when it is selected. */
+.treeCount {
+  margin-right: var(--s2);
+  color: var(--ink-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--s2);
+  margin-top: auto;
+  padding: var(--s3) var(--s2);
+  border-top: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+.total {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.totalValue {
+  font-size: var(--fs-28);
+  color: var(--ink);
+}
+
+.collapseButton {
+  flex: none;
+}
+
+@media (max-width: 1023px) {
+  .rail {
+    position: fixed;
+    top: var(--topbar-h);
+    bottom: 0;
+    left: 0;
+    z-index: 45;
+    width: var(--rail-w);
+    max-width: 86vw;
+    transform: translateX(-100%);
+    box-shadow: var(--elevation);
+    /* `visibility` (not just the transform) takes the off-screen drawer out of the tab
+       order; it flips back at the end of the slide-out so the animation still plays. */
+    visibility: hidden;
+    transition:
+      transform var(--dur) var(--ease),
+      visibility 0s linear var(--dur);
+  }
+
+  /* Collapsing to 56px is meaningless inside a drawer; the top-bar toggle closes it. */
+  .collapseButton {
+    display: none;
+  }
+
+  .drawerOpen {
+    transform: translateX(0);
+    visibility: visible;
+    transition:
+      transform var(--dur) var(--ease),
+      visibility 0s;
+  }
+}

@@ -1,0 +1,140 @@
+.card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--s2) var(--s4);
+  padding: var(--s4);
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+}
+
+.card:target,
+.card:focus-within {
+  border-color: var(--rule-strong);
+}
+
+.heading {
+  grid-column: 1;
+  margin: 0;
+  font-size: var(--fs-16);
+}
+
+.impact {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.impactValue {
+  font-size: var(--fs-20);
+}
+
+.impactLabel {
+  font-size: var(--fs-12);
+  color: var(--ink-3);
+}
+
+.body {
+  grid-column: 1;
+  margin: 0;
+  max-width: 68ch;
+  color: var(--ink-2);
+  font-size: var(--fs-13);
+  line-height: var(--lh-body);
+}
+
+.meta {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2);
+  padding-top: var(--s2);
+  border-top: 1px dotted var(--rule);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 1px 7px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r1);
+  font-size: var(--fs-12);
+  font-weight: 560;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--ink-3);
+}
+
+.saving .dot {
+  background: var(--save);
+}
+
+.waste .dot {
+  background: var(--cost);
+}
+
+.info .dot {
+  background: var(--info);
+}
+
+.metric {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  padding: 1px 7px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r1);
+  background: var(--paper-3);
+  font-size: var(--fs-12);
+  color: var(--ink-2);
+}
+
+.sessions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s1) var(--s2);
+  margin-left: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Three chips or more and the list stops competing with the tag and the metric for one line. */
+.sessions[data-many='true'] {
+  flex: 1 1 100%;
+  margin-left: 0;
+}
+
+.sessionLink {
+  max-width: 42ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--fs-12);
+}
+
+.compact {
+  padding: var(--s3);
+}
+
+.compact .heading {
+  font-size: var(--fs-14);
+}
+
+.compact .impactValue {
+  font-size: var(--fs-16);
+}

@@ -1,0 +1,29 @@
+.intro {
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+  line-height: var(--lh-body);
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 var(--s3);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--fs-13);
+  cursor: pointer;
+}
+
+.trigger:hover {
+  background: var(--paper-3);
+}
+
+.trigger[data-active='true'] {
+  border-color: var(--info);
+  color: var(--info);
+}

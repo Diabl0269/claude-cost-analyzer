@@ -1,0 +1,170 @@
+/* Layout primitives. Composition helpers only — no component styling here. */
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Vertical rhythm: `.stack` with a --gap override. */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap, var(--s4));
+  min-width: 0;
+}
+
+.stack-sm {
+  --gap: var(--s2);
+}
+
+.stack-lg {
+  --gap: var(--s6);
+}
+
+/* Horizontal group that wraps. */
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--gap, var(--s2));
+  min-width: 0;
+}
+
+.cluster-between {
+  justify-content: space-between;
+}
+
+.cluster-end {
+  justify-content: flex-end;
+}
+
+.grow {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.rule-top {
+  border-top: 1px solid var(--rule);
+}
+
+.rule-bottom {
+  border-bottom: 1px solid var(--rule);
+}
+
+/* Page grid with an optional 320px inspector column. */
+.with-inspector {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--inspector-w);
+  gap: var(--s6);
+  align-items: start;
+}
+
+@media (max-width: 1180px) {
+  .with-inspector {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.grid-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+  gap: 0;
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+  overflow: hidden;
+}
+
+/* The hairlines live on the row, not on the cell, so a wrap can move them. */
+.grid-kpis > * {
+  border-right: 1px solid var(--rule);
+}
+
+.grid-kpis > *:last-child {
+  border-right: 0;
+}
+
+/*
+ * Six KPIs. 6, 3 and 2 columns all divide six exactly, so the row never wraps into a short line
+ * followed by blank tracks — `auto-fit` put four cells on the first line and two on the second,
+ * with two empty slots beside them and no rule between the lines.
+ */
+.grid-kpis-6 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-kpis-6 > *:nth-child(3n) {
+  border-right: 0;
+}
+
+.grid-kpis-6 > *:nth-child(-n + 3) {
+  border-bottom: 1px solid var(--rule);
+}
+
+@media (min-width: 1281px) {
+  .grid-kpis-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .grid-kpis-6 > *:nth-child(3n) {
+    border-right: 1px solid var(--rule);
+  }
+
+  .grid-kpis-6 > *:nth-child(-n + 3) {
+    border-bottom: 0;
+  }
+
+  .grid-kpis-6 > *:last-child {
+    border-right: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .grid-kpis-6 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid-kpis-6 > *:nth-child(3n) {
+    border-right: 1px solid var(--rule);
+  }
+
+  .grid-kpis-6 > *:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .grid-kpis-6 > *:nth-child(-n + 4) {
+    border-bottom: 1px solid var(--rule);
+  }
+}
+
+.panel {
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+}
+
+.panel-pad {
+  padding: var(--s4);
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s3);
+  margin-bottom: var(--s2);
+}

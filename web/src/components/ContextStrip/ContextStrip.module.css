@@ -1,0 +1,89 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  min-width: 0;
+}
+
+.barWrap {
+  position: relative;
+  width: 100%;
+  border-radius: var(--r1);
+  overflow: hidden;
+  background: var(--paper-3);
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hitLayer {
+  position: absolute;
+  inset: 0;
+}
+
+.hit {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border: 0;
+  background: transparent;
+  min-width: 3px;
+}
+
+.hit:hover {
+  background: color-mix(in srgb, var(--paper-2) 22%, transparent);
+}
+
+.hit:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+}
+
+.selected {
+  background: color-mix(in srgb, var(--paper-2) 30%, transparent);
+  box-shadow: inset 0 0 0 1px var(--ink);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1) var(--s4);
+  font-size: var(--fs-12);
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s1);
+}
+
+.swatch {
+  width: 9px;
+  height: 9px;
+  border-radius: 1px;
+  flex: none;
+}
+
+.swatch[data-pattern='hatch'] {
+  background-image: repeating-linear-gradient(45deg, transparent 0 2px, var(--paper-2) 2px 3px);
+}
+
+.swatch[data-pattern='dots'] {
+  background-image: radial-gradient(var(--paper-2) 0.8px, transparent 0.9px);
+  background-size: 3px 3px;
+}
+
+.legendLabel {
+  color: var(--ink-2);
+}
+
+.legendValue {
+  color: var(--ink);
+}
+
+.legendCost {
+  color: var(--ink-3);
+}

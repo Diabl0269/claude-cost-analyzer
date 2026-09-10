@@ -1,0 +1,4 @@
+{"type":"started","key":"v2:aaa","agentId":"c1000000000000001"}
+{"type":"started","key":"v2:bbb","agentId":"c2000000000000002"}
+{"type":"result","key":"v2:aaa","agentId":"c1000000000000001","result":"The parser drops the trailing newline."}
+{"type":"failed","key":"v2:bbb","agentId":"c2000000000000002"}

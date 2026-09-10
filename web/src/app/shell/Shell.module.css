@@ -1,0 +1,68 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: var(--paper);
+}
+
+.skipLink {
+  position: absolute;
+  top: -48px;
+  left: var(--s3);
+  z-index: 200;
+  padding: var(--s2) var(--s3);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+  color: var(--ink);
+  font-size: var(--fs-13);
+  transition: top var(--dur) var(--ease);
+}
+
+.skipLink:focus {
+  top: var(--s2);
+}
+
+.body {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.main {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: var(--s6) var(--s6) var(--s8);
+  max-width: calc(var(--content-max) + var(--inspector-w));
+}
+
+.main:focus {
+  outline: none;
+}
+
+.main > * {
+  min-width: 0;
+}
+
+.drawerScrim {
+  position: fixed;
+  inset: var(--topbar-h) 0 0 0;
+  z-index: 44;
+  background: var(--scrim);
+  border: 0;
+  cursor: default;
+}
+
+@media (min-width: 1024px) {
+  .drawerScrim {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .main {
+    padding: var(--s4) var(--s3) var(--s7);
+  }
+}

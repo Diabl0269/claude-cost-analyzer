@@ -1,0 +1,95 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  min-width: 0;
+}
+
+.barRow {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.label {
+  flex: none;
+  width: 108px;
+  font-size: var(--fs-12);
+  color: var(--ink-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* The full-width lane the bar sits in. When `fraction` is set the bar is shorter than its
+   track, so a row of bars reads as a comparison instead of a row of identical strips. */
+.track {
+  flex: 1 1 auto;
+  display: flex;
+  min-width: 0;
+}
+
+.bar {
+  width: 100%;
+  border-radius: var(--r1);
+  overflow: hidden;
+  background: var(--paper-3);
+}
+
+.emptyBar {
+  fill: var(--paper-3);
+}
+
+.patternStroke {
+  stroke: var(--paper-2);
+}
+
+.patternFill {
+  fill: var(--paper-2);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1) var(--s4);
+  font-size: var(--fs-12);
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s1);
+}
+
+.swatch {
+  width: 9px;
+  height: 9px;
+  border-radius: 1px;
+  flex: none;
+}
+
+.swatch[data-pattern='hatch'] {
+  background-image: repeating-linear-gradient(45deg, transparent 0 2px, var(--paper-2) 2px 3px);
+}
+
+.swatch[data-pattern='dots'] {
+  background-image: radial-gradient(var(--paper-2) 0.8px, transparent 0.9px);
+  background-size: 3px 3px;
+}
+
+.swatch[data-pattern='grid'] {
+  background-image: repeating-linear-gradient(0deg, transparent 0 2px, var(--paper-2) 2px 3px);
+}
+
+.legendLabel {
+  color: var(--ink-2);
+}
+
+.legendValue {
+  color: var(--ink);
+}
+
+.legendPercent {
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}

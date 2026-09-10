@@ -1,0 +1,11 @@
+.source {
+  display: inline-block;
+  padding: 0 4px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r1);
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+}

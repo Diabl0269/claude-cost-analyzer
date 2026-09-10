@@ -1,0 +1,96 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  min-width: 0;
+}
+
+/*
+ * The strip and its two date labels are one block, exactly as wide as the cells it holds, so the
+ * last date sits under the last day rather than out at the panel's right edge.
+ */
+.calendar {
+  --day-w: 24px;
+  --day-gap: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  width: min(100%, calc(var(--days, 30) * (var(--day-w) + var(--day-gap)) - var(--day-gap)));
+}
+
+/*
+ * A calendar strip, not a bar chart: cells are a fixed 24px and left-aligned, so 30 days of a
+ * month occupy the same 30 slots however many of them billed anything, and a five-day window
+ * draws five cells rather than five 220px slabs. They shrink (never grow) to fit a narrow column.
+ */
+.strip {
+  display: flex;
+  gap: 2px;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.cell {
+  flex: 1 1 0;
+  min-width: 4px;
+  max-width: var(--day-w);
+  border: 1px solid transparent;
+  border-radius: var(--r1);
+  transition: outline-color var(--dur-fast) var(--ease);
+}
+
+/* A day that billed nothing: bare paper inside a permanent hairline. */
+.blank {
+  background: var(--paper);
+  border-color: var(--rule);
+}
+
+.cell:hover {
+  border-color: var(--rule-strong);
+}
+
+.selected {
+  border-color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--paper-2);
+}
+
+.axis {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  font-variant-numeric: tabular-nums slashed-zero;
+  color: var(--ink-3);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+  flex-wrap: wrap;
+}
+
+.readout {
+  font-size: var(--fs-12);
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: var(--fs-12);
+  color: var(--ink-3);
+}
+
+.legendCell {
+  width: 11px;
+  height: 11px;
+  border-radius: 1px;
+  border: 1px solid var(--rule);
+}

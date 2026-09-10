@@ -1,0 +1,26 @@
+.bar {
+  max-width: 100%;
+  display: block;
+  background: linear-gradient(90deg, var(--paper-3) 0%, color-mix(in srgb, var(--paper-3) 55%, var(--paper-2)) 50%, var(--paper-3) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s var(--ease) infinite;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar {
+    animation: none;
+    background: var(--paper-3);
+  }
+}

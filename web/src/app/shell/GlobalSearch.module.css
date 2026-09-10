@@ -1,0 +1,54 @@
+.form {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  width: min(420px, 40vw);
+  min-width: 160px;
+  height: 28px;
+  padding: 0 var(--s2);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+}
+
+.form:focus-within {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+}
+
+.icon {
+  color: var(--ink-3);
+  flex: none;
+}
+
+.input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 0;
+  background: none;
+  font-size: var(--fs-13);
+  color: var(--ink);
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--ink-3);
+}
+
+.input::-webkit-search-cancel-button {
+  filter: grayscale(1);
+}
+
+.kbd {
+  flex: none;
+  color: var(--ink-3);
+}
+
+@media (max-width: 720px) {
+  .kbd {
+    display: none;
+  }
+}

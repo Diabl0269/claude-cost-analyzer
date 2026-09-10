@@ -1,0 +1,299 @@
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--s4);
+  flex-wrap: wrap;
+}
+
+.meta {
+  color: var(--ink-3);
+  font-size: var(--fs-13);
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  flex-wrap: wrap;
+}
+
+.field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1 1 340px;
+  min-width: 220px;
+}
+
+.fieldIcon {
+  position: absolute;
+  left: 10px;
+  color: var(--ink-3);
+  pointer-events: none;
+}
+
+.input {
+  width: 100%;
+  height: 36px;
+  padding: 0 var(--s3) 0 32px;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--fs-16);
+}
+
+.input::placeholder {
+  color: var(--ink-3);
+  font-size: var(--fs-14);
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s2) var(--s3);
+  padding: var(--s2) var(--s3);
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+}
+
+.filterGroup {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  min-width: 0;
+}
+
+/* The hairline that makes four controls read as one bar. */
+.divider {
+  flex: none;
+  width: 1px;
+  height: 18px;
+  background: var(--rule);
+}
+
+/* Once the bar wraps, a divider is left dangling at the end of a line: drop them and let the
+   line breaks do the grouping. */
+@media (max-width: 1240px) {
+  .divider {
+    display: none;
+  }
+}
+
+.clear {
+  margin-left: auto;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1);
+}
+
+.chip {
+  height: 24px;
+  padding: 0 var(--s2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+  color: var(--ink-2);
+  font: inherit;
+  font-size: var(--fs-12);
+  cursor: pointer;
+}
+
+.chip[aria-pressed='true'] {
+  border-color: var(--rule-strong);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.chip:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.toolField {
+  display: inline-flex;
+}
+
+.toolInput {
+  width: 150px;
+  height: 26px;
+  padding: 0 var(--s2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--fs-13);
+}
+
+.projectChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 24px;
+  padding: 0 var(--s2);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+  color: var(--ink-2);
+  font: inherit;
+  font-size: var(--fs-12);
+  cursor: pointer;
+}
+
+.hint {
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  padding: var(--s3) 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.groupHead {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--s3);
+}
+
+.groupTitle {
+  color: var(--ink);
+  font-size: var(--fs-14);
+  font-weight: 560;
+  text-decoration: none;
+}
+
+.groupTitle:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.titleMatch {
+  padding: 0 5px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r1);
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}
+
+.groupMeta {
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}
+
+.groupCost {
+  margin-left: auto;
+  font-weight: 560;
+}
+
+.hits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+}
+
+.hit {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s3);
+  padding: 4px var(--s2);
+  border: 1px solid transparent;
+  border-radius: var(--r2);
+  color: var(--ink-2);
+  font-size: var(--fs-13);
+  text-decoration: none;
+}
+
+.hit:hover {
+  border-color: var(--rule);
+  background: var(--paper-2);
+}
+
+.hitKind {
+  flex: none;
+  width: 108px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}
+
+.snippet {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+}
+
+.mark {
+  padding: 0 1px;
+  border-radius: var(--r1);
+  background: color-mix(in srgb, var(--warn) 30%, transparent);
+  color: var(--ink);
+}
+
+.hitSeq {
+  flex: none;
+  color: var(--ink-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+}
+
+.noHits {
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  align-self: flex-start;
+  color: var(--info);
+  font-size: var(--fs-12);
+  text-decoration: none;
+}
+
+.more:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.loadMore {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--s2);
+}
+
+.pageNote {
+  text-align: center;
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}
+
+.linkButton {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--info);
+  font: inherit;
+  font-size: var(--fs-12);
+  cursor: pointer;
+}

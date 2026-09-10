@@ -1,0 +1,272 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s4);
+  padding-bottom: var(--s2);
+  border-bottom: 1px solid var(--rule);
+}
+
+.count {
+  font-size: var(--fs-12);
+  color: var(--ink-2);
+}
+
+.hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}
+
+.muted {
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}
+
+.jumpNote {
+  color: var(--ink-2);
+  font-size: var(--fs-12);
+}
+
+.linkButton {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--info);
+  font: inherit;
+  font-size: var(--fs-12);
+  cursor: pointer;
+}
+
+.scroller {
+  height: min(72vh, 940px);
+  min-height: 420px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 var(--s3);
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+}
+
+.pager {
+  display: flex;
+  justify-content: center;
+  padding: var(--s2) 0;
+}
+
+.edge {
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.list {
+  position: relative;
+  width: 100%;
+}
+
+.row {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-bottom: var(--s3);
+}
+
+.turn {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s3);
+  padding: var(--s3) 0 var(--s2);
+  border-top: 1px solid var(--rule-strong);
+}
+
+/* `[` / `]` move focus here. It is not a tab stop, so the ring only ever appears as the
+   result of the shortcut — which is exactly when the reader needs to see where they landed. */
+.turn:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: var(--r1);
+}
+
+.turnLabel {
+  flex: none;
+  font-family: var(--font-ui);
+  font-size: var(--fs-12);
+  font-weight: 560;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.turnPreview {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  flex: 1 1 auto;
+  color: var(--ink-2);
+  font-size: var(--fs-13);
+}
+
+.turnStats {
+  flex: none;
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}
+
+.turnCost {
+  color: var(--ink);
+  font-weight: 560;
+}
+
+.compaction {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: var(--s2) var(--s3);
+  border: 1px dashed color-mix(in srgb, var(--warn) 50%, var(--rule));
+  border-radius: var(--r2);
+  color: var(--warn);
+  font-size: var(--fs-12);
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  padding: var(--s2) var(--s3);
+  border: 1px solid transparent;
+  border-radius: var(--r2);
+}
+
+.messageHead {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+
+.who {
+  font-family: var(--font-ui);
+  font-size: var(--fs-12);
+  font-weight: 560;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.seq {
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  color: var(--ink-3);
+}
+
+.when {
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  color: var(--ink-3);
+}
+
+.prompt {
+  border-color: var(--rule);
+  background: var(--paper);
+  border-left: 2px solid var(--m-opus);
+}
+
+.promptBody {
+  font-family: var(--font-ui);
+  font-size: var(--fs-14);
+  color: var(--ink);
+}
+
+.assistant {
+  border-color: transparent;
+}
+
+.assistantBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  min-width: 0;
+}
+
+.summaryLine {
+  border-color: var(--rule);
+  border-left: 2px solid var(--warn);
+  background: var(--paper);
+}
+
+.interrupt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: var(--s1) var(--s3);
+  color: var(--cost);
+  font-size: var(--fs-12);
+}
+
+/* A prompt that was only a slash command: one muted line, not a card. */
+.command {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s2);
+  padding: var(--s1) var(--s3);
+  font-size: var(--fs-12);
+  color: var(--ink-3);
+}
+
+.commandLabel {
+  flex: none;
+  font-size: var(--fs-12);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.commandText {
+  font-family: var(--font-mono);
+  color: var(--ink-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+  padding: 0 var(--s3);
+}
+
+.harness {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  padding: 2px var(--s3);
+  color: var(--ink-3);
+  font-size: var(--fs-12);
+}
+
+.harnessLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+}
+
+.harnessBody {
+  flex: 1 1 100%;
+  min-width: 0;
+}
+
+.highlight {
+  border-color: var(--focus);
+  box-shadow: 0 0 0 1px var(--focus) inset;
+}

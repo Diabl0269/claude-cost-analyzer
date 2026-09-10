@@ -1,0 +1,21 @@
+.sparkline {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: visible;
+}
+
+.sparkline[data-tone='ink'] {
+  color: var(--ink-2);
+}
+
+.sparkline[data-tone='cost'] {
+  color: var(--cost);
+}
+
+.sparkline[data-tone='save'] {
+  color: var(--save);
+}
+
+.sparkline[data-tone='info'] {
+  color: var(--info);
+}

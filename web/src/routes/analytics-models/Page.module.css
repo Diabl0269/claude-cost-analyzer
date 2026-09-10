@@ -1,0 +1,21 @@
+.page {
+  max-width: 1320px;
+}
+
+.speedGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 420px);
+  gap: var(--s4);
+  align-items: start;
+}
+
+.panel {
+  padding: var(--s4);
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+}
+
+.panelHead {
+  margin-bottom: var(--s2);
+}

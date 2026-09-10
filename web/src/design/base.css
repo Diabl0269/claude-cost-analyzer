@@ -1,0 +1,240 @@
+/* Reset + base surface. Loaded after tokens.css. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: var(--fs-14);
+  line-height: var(--lh-body);
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--ink);
+}
+
+/* Focus: 2px ring, offset 2px, never removed for keyboard users. */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: var(--r1);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Scrollbars: hairline, no chrome. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--rule-strong);
+  border: 3px solid transparent;
+  background-clip: content-box;
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-3);
+  background-clip: content-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*
+ * The explicit setting (Settings → Appearance). `data-motion="reduce"` forces the same rules on,
+ * `data-motion="full"` opts back in even when the OS asks for less; no attribute = follow the OS.
+ * Inert until `lib/motion.ts` writes the attribute.
+ */
+[data-motion='reduce'],
+[data-motion='reduce'] *,
+[data-motion='reduce'] *::before,
+[data-motion='reduce'] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-motion='full'],
+  [data-motion='full'] *,
+  [data-motion='full'] *::before,
+  [data-motion='full'] *::after {
+    animation-duration: revert !important;
+    animation-iteration-count: revert !important;
+    transition-duration: revert !important;
+    scroll-behavior: revert !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --rule: var(--rule-strong);
+    --ink-3: var(--ink-2);
+  }
+}
+
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  :root,
+  [data-theme='slate'] {
+    --paper: #fff;
+    --paper-2: #fff;
+    --paper-3: #fff;
+    --ink: #000;
+    --ink-2: #222;
+    --ink-3: #444;
+    --rule: rgba(0, 0, 0, 0.3);
+    --rule-strong: rgba(0, 0, 0, 0.6);
+  }
+
+  body {
+    background: #fff;
+  }
+
+  [data-print-hide],
+  header[data-app-bar],
+  nav[data-app-rail] {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: var(--fs-12);
+    color: #444;
+  }
+
+  /* Keep a receipt, a panel or a figure whole: a total on its own page is not a receipt.
+     A heading never ends a page either. */
+  section,
+  figure,
+  [class*='panel'] {
+    break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  /* Paper has no hover and no scrollbars: let every table print at full length. */
+  [class*='scroller'] {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+}

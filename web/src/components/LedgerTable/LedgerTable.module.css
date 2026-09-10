@@ -1,0 +1,229 @@
+.scroller {
+  position: relative;
+  max-width: 100%;
+  min-width: 0;
+  overscroll-behavior-x: contain;
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+}
+
+.table {
+  width: 100%;
+  table-layout: auto;
+  font-size: var(--fs-13);
+}
+
+.caption {
+  padding: var(--s3) var(--s4) var(--s2);
+  text-align: left;
+  font-family: var(--font-ui);
+  font-size: var(--fs-12);
+  font-weight: 560;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.head {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--paper-2);
+}
+
+.head::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--rule-strong);
+}
+
+.headCell {
+  padding: var(--s2) var(--s3);
+  text-align: left;
+  font-size: var(--fs-12);
+  font-weight: 560;
+  letter-spacing: 0.03em;
+  color: var(--ink-3);
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+
+/*
+  A sortable header and a plain one are the same box, so a row of headers sits on one baseline —
+  the sort button used to render 2px higher than its neighbours.
+*/
+.headInner {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  vertical-align: bottom;
+}
+
+/* A right-aligned column keeps its label at the right edge, where its numbers are, with any
+   aside (an est. badge, a unit) after the label rather than adrift next to the column before. */
+.numeric .headInner {
+  justify-content: flex-end;
+}
+
+.center .headInner {
+  justify-content: center;
+}
+
+.headBox {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  min-height: 18px;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: inherit;
+}
+
+.sortButton {
+  border-radius: var(--r1);
+  cursor: pointer;
+}
+
+.numeric .sortButton {
+  flex-direction: row-reverse;
+}
+
+/* A spanning label ("Cache write") over the columns it covers. */
+.groupCell {
+  padding: var(--s2) var(--s3) 2px;
+  text-align: center;
+  font-size: var(--fs-12);
+  font-weight: 560;
+  letter-spacing: 0.03em;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+
+.groupCell::after {
+  content: '';
+  display: block;
+  margin: 2px var(--s1) 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.sortButton:hover {
+  color: var(--ink);
+}
+
+.sortIcon {
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease);
+}
+
+.sortButton:hover .sortIcon {
+  opacity: 0.5;
+}
+
+.sortIconActive {
+  color: var(--ink);
+}
+
+.row {
+  border-top: 1px solid var(--rule);
+  transition: background-color var(--dur-fast) var(--ease);
+}
+
+.row:hover {
+  background: color-mix(in srgb, var(--ink) 3.5%, transparent);
+}
+
+.row:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+}
+
+/* 8%, not 10%: the tint lightens the row enough that `--ink-3` secondary text (a session's
+   project path, a branch) fell to 4.46:1 on the current row. The inset bar carries the cue. */
+.current {
+  background: color-mix(in srgb, var(--info) 8%, transparent);
+  box-shadow: inset 2px 0 0 var(--info);
+}
+
+.cell {
+  padding: 0 var(--s3);
+  color: var(--ink);
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.numeric {
+  text-align: right;
+  font-variant-numeric: tabular-nums slashed-zero;
+  white-space: nowrap;
+}
+
+.center {
+  text-align: center;
+}
+
+.selectCell {
+  width: 32px;
+  padding-left: var(--s3);
+  text-align: left;
+}
+
+.emptyCell {
+  padding: var(--s6) var(--s4);
+  text-align: center;
+  color: var(--ink-3);
+}
+
+.foot {
+  position: sticky;
+  bottom: 0;
+  background: var(--paper);
+  border-top: 1px solid var(--rule-strong);
+  font-weight: 560;
+}
+
+.foot .cell {
+  padding-top: var(--s2);
+  padding-bottom: var(--s2);
+}
+
+.dense .cell,
+.dense .headCell {
+  padding-left: var(--s2);
+  padding-right: var(--s2);
+  font-size: var(--fs-12);
+}
+
+@media (max-width: 900px) {
+  .secondary {
+    display: none;
+  }
+}
+
+/* A count of failures/timeouts/errors: dimmed at zero, coloured with a glyph above it. */
+.countZero {
+  color: var(--ink-3);
+}
+
+.countFlag {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-variant-numeric: tabular-nums slashed-zero;
+}
+
+.countWarn {
+  color: var(--warn);
+}
+
+.countCost {
+  color: var(--cost);
+}

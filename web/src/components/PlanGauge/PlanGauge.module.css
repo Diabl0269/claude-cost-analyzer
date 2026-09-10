@@ -1,0 +1,69 @@
+.gauge {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.rowLabel {
+  flex: none;
+  width: 116px;
+  font-size: var(--fs-12);
+  color: var(--ink-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.track {
+  position: relative;
+  flex: 1 1 auto;
+  height: 14px;
+  border-radius: var(--r1);
+  background: var(--paper-3);
+  overflow: visible;
+}
+
+.fill {
+  height: 100%;
+  border-radius: var(--r1);
+}
+
+.fill[data-tone='plan'] {
+  background: var(--ink-3);
+}
+
+.fill[data-tone='api'] {
+  background: var(--cost);
+}
+
+.forecast {
+  position: absolute;
+  top: -3px;
+  bottom: -3px;
+  width: 2px;
+  background: var(--ink);
+  border-radius: 1px;
+}
+
+.rowValue {
+  flex: none;
+  width: 92px;
+  text-align: right;
+  font-size: var(--fs-13);
+}
+
+.verdict {
+  margin-top: var(--s1);
+  font-size: var(--fs-13);
+  color: var(--ink-2);
+}
+
+.share {
+  color: var(--ink-3);
+}

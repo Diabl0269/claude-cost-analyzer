@@ -1,0 +1,22 @@
+.page {
+  max-width: 1120px;
+}
+
+.group {
+  --gap: var(--s3);
+}
+
+.list {
+  display: grid;
+  gap: var(--s3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* The header's inline note. Underlined, not just tinted: the note is quieter than the lead
+   above it, so a link relying on colour alone fails WCAG 1.4.1 against the lead's ink. */
+.hintLink {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

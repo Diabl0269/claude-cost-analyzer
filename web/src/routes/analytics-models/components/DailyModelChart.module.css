@@ -1,0 +1,97 @@
+.wrap {
+  position: relative;
+  width: 100%;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+
+.gridline {
+  stroke: var(--rule);
+  stroke-width: 1;
+}
+
+.baseline {
+  stroke: var(--rule-strong);
+  stroke-width: 1;
+}
+
+.axisLabel {
+  fill: var(--ink-3);
+  font-size: 11px;
+}
+
+.day {
+  outline: none;
+  cursor: default;
+}
+
+.day:focus-visible .focusRing,
+.day.active .focusRing {
+  opacity: 1;
+}
+
+.focusRing {
+  fill: none;
+  stroke: var(--focus);
+  stroke-width: 2;
+  opacity: 0;
+}
+
+.tooltip {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  z-index: 2;
+  min-width: 180px;
+  padding: var(--s2) var(--s3);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+  box-shadow: var(--elevation);
+  font-size: var(--fs-12);
+  pointer-events: none;
+}
+
+.tooltipHead {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s3);
+  padding-bottom: 3px;
+  margin-bottom: 3px;
+  border-bottom: 1px solid var(--rule);
+  font-weight: 560;
+}
+
+.tooltipRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+}
+
+.swatch {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 5px;
+  border-radius: 2px;
+  vertical-align: -1px;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1) var(--s4);
+  font-size: var(--fs-12);
+  color: var(--ink-2);
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}

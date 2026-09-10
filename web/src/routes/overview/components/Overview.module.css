@@ -1,0 +1,286 @@
+.modelRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s1);
+  padding: var(--s3) 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.modelRow:last-child {
+  border-bottom: 0;
+}
+
+.modelHead {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s3);
+  min-width: 0;
+}
+
+.modelName {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: var(--fs-13);
+  color: var(--ink);
+}
+
+.modelMeta {
+  font-size: var(--fs-12);
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*
+ * Weighted to content, not split down the middle: the exact receipt is six rows of two figures,
+ * the estimated one is eighteen rows with long labels. Equal halves left ~450px of empty paper
+ * beside the short column.
+ */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  gap: var(--s4);
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* The left column carries the receipt and then the token mix, and ends level with the right. */
+.exactPanel {
+  justify-content: space-between;
+  gap: var(--s4);
+}
+
+.tokenMix {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  padding-top: var(--s3);
+  border-top: 1px solid var(--rule);
+}
+
+.receiptPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  padding: var(--s4);
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+}
+
+.receiptHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s2);
+}
+
+.planGrid {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(0, 1.2fr);
+  gap: var(--s4);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .planGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.budget {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  padding: var(--s4);
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+}
+
+.budgetTrack {
+  position: relative;
+  height: 14px;
+  border-radius: var(--r1);
+  background: var(--paper-3);
+  box-shadow: inset 0 0 0 1px var(--rule);
+  overflow: hidden;
+}
+
+.budgetSpent {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--ink-3);
+}
+
+.budgetOver {
+  background: var(--cost);
+}
+
+.budgetForecast {
+  position: absolute;
+  top: -3px;
+  bottom: -3px;
+  width: 2px;
+  background: var(--warn);
+}
+
+.budgetLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1) var(--s4);
+  font-size: var(--fs-12);
+  color: var(--ink-2);
+}
+
+.whatIfChips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s1);
+  padding: 2px 4px 2px 8px;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r1);
+  background: var(--paper-2);
+  font-size: var(--fs-12);
+}
+
+.whatIfForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+}
+
+.projectPath {
+  display: block;
+  font-size: var(--fs-12);
+  color: var(--ink-3);
+}
+
+/* Money plus its "est." badge on one baseline, so the receipt's leader dots still line up. */
+.estimatedValue {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--s1);
+  white-space: nowrap;
+}
+
+/* The residual label doubles as the tooltip trigger explaining what is left over. */
+.residualLabel {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  cursor: help;
+}
+
+/* ── Loading state: the same slots the loaded page fills ──────────────── */
+
+.skeletonKpi {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  row-gap: var(--s2);
+  padding: var(--s3) var(--s4);
+  min-height: 104px;
+}
+
+.skeletonStrip {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  padding: var(--s3) var(--s4) var(--s4);
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  background: var(--paper-2);
+}
+
+.skeletonStripFoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+}
+
+/* A count that is deliberately absent: an em dash, with the reason on hover and on focus. */
+.fallbackCount {
+  text-decoration: none;
+  cursor: help;
+  color: var(--ink-3);
+}
+
+.fallbackNote {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  cursor: help;
+}
+
+/* No plan configured: the callout, then the one figure that is actually known. */
+.planEmpty {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--s4);
+}
+
+.planSoFar {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-end;
+  text-align: right;
+  padding-left: var(--s4);
+  border-left: 1px solid var(--rule);
+}
+
+@media (max-width: 900px) {
+  .planEmpty {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .planSoFar {
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
+/*
+ * A chart that owns its own section heading: title and subtitle on one baseline. The frame's
+ * caption is an uppercase eyebrow by default; a real heading and its note are neither.
+ */
+.chartTitle {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--s3);
+  min-width: 0;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+}

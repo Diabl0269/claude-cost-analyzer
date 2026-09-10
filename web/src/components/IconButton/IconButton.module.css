@@ -1,0 +1,42 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--r2);
+  border: 1px solid transparent;
+  color: var(--ink-2);
+  transition: background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+
+.button:hover:not(:disabled) {
+  background: var(--paper-3);
+  color: var(--ink);
+}
+
+.button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.sm {
+  width: 24px;
+  height: 24px;
+}
+
+.md {
+  width: 28px;
+  height: 28px;
+}
+
+.outline {
+  border-color: var(--rule-strong);
+  background: var(--paper-2);
+}
+
+.active {
+  background: var(--paper-3);
+  color: var(--ink);
+  border-color: var(--rule-strong);
+}

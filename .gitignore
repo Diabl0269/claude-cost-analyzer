@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.cca-e2e-home/
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+playwright-report/
+test-results/
+.DS_Store
+.env
+.env.*
+docs/screenshots/*.tmp.png
+.cca-scratch/
+docs/internal/
+.privacy-denylist.local
+docs/demo/*.webm

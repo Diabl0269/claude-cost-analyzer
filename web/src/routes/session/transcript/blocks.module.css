@@ -1,0 +1,252 @@
+.clamp {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+  min-width: 0;
+}
+
+.pre {
+  overflow-x: auto;
+  max-width: 100%;
+  max-height: 420px;
+  padding: var(--s2) var(--s3);
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  background: var(--paper-3);
+  color: var(--ink-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.expander {
+  align-self: flex-start;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--info);
+  font: inherit;
+  font-size: var(--fs-12);
+  cursor: pointer;
+}
+
+.expander:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.requestChip {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  padding: 2px 0;
+  font-size: var(--fs-12);
+}
+
+.usage {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  color: var(--ink-3);
+}
+
+.usageItem {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+}
+
+.hit {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--ink-2);
+}
+
+/* The hue is a second channel next to the text, never the only one - and it stays out of
+   the text colour, which has to clear 4.5:1 on paper. */
+.hit::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--t-cache-read);
+}
+
+.warnFlag {
+  padding: 0 4px;
+  border: 1px solid color-mix(in srgb, var(--warn) 45%, var(--rule));
+  border-radius: var(--r1);
+  color: var(--warn);
+}
+
+.requestCost {
+  font-weight: 560;
+  color: var(--ink);
+}
+
+.tool,
+.result,
+.thinking {
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  background: var(--paper);
+}
+
+.tool[data-error='true'],
+.result[data-error='true'] {
+  border-color: color-mix(in srgb, var(--cost) 45%, var(--rule));
+}
+
+.toolHead,
+.resultHead,
+.thinkingHead {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  width: 100%;
+  min-height: 26px;
+  padding: 3px var(--s2);
+  border: 0;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: var(--fs-12);
+  text-align: left;
+  cursor: pointer;
+}
+
+.toolHead:hover,
+.resultHead:hover,
+.thinkingHead:hover {
+  background: var(--paper-3);
+}
+
+.chevron {
+  flex: none;
+  color: var(--ink-3);
+}
+
+.toolIcon {
+  flex: none;
+  color: var(--ink-3);
+}
+
+.toolSummary {
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  color: var(--ink-3);
+}
+
+.toolCost {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  flex: none;
+  margin-left: auto;
+}
+
+.errorFlag {
+  flex: none;
+  padding: 0 4px;
+  border-radius: var(--r1);
+  background: color-mix(in srgb, var(--cost) 16%, transparent);
+  color: var(--cost);
+}
+
+.toolBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  padding: var(--s2) var(--s3) var(--s3);
+  border-top: 1px solid var(--rule);
+}
+
+.costGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: var(--s2) var(--s4);
+}
+
+.costGrid dt {
+  font-family: var(--font-ui);
+  font-size: var(--fs-12);
+  font-weight: 560;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.costGrid dd {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s2);
+  font-size: var(--fs-12);
+}
+
+.muted {
+  color: var(--ink-3);
+}
+
+.strong {
+  font-weight: 560;
+  color: var(--ink);
+}
+
+.child {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: var(--fs-12);
+  color: var(--ink-2);
+}
+
+.childLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--info);
+  text-decoration: none;
+}
+
+.childLink:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.resultLabel {
+  flex: none;
+  color: var(--ink-3);
+}
+
+.sizeChip {
+  flex: none;
+  padding: 0 5px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r1);
+  color: var(--ink-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+}
+
+.showHint {
+  flex: none;
+  color: var(--ink-3);
+}
+
+.thinking {
+  background: none;
+  border-style: dashed;
+}
+
+.thinkingHead {
+  color: var(--ink-3);
+  font-style: italic;
+}

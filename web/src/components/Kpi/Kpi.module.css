@@ -1,0 +1,101 @@
+/*
+ * Three rows — label / numeral / footer — sized `auto 1fr auto`, so a row of KPIs lines up on
+ * three shared horizontals however long the labels are and however tall the numerals: label tops
+ * on the first, numeral baselines on the second, the delta or note line on the last. A flex
+ * column let each cell size itself and the row's bottom edge came out ragged.
+ */
+.kpi {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  row-gap: var(--s1);
+  padding: var(--s3) var(--s4);
+  min-width: 0;
+}
+
+/* Two lines of eyebrow are reserved whether or not the label needs them, so a long label
+   ("Sessions with requests") does not push its numeral below the ones beside it in a KPI row. */
+.labelRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s1);
+  min-height: 30px;
+}
+
+.hint {
+  display: inline-flex;
+  color: var(--ink-3);
+  border-radius: var(--r1);
+}
+
+.hint:hover {
+  color: var(--ink);
+}
+
+/*
+ * The numeral hangs from the bottom of its own row, and the row is `1fr`, so every numeral in a
+ * KPI row shares one horizontal. `line-height: 1` plus the descender correction below puts the
+ * *baseline* — not the bottom of the line box — a fixed 10px above the footer line, so the 40px
+ * Spend figure sits on the same rule as the 28px ones beside it instead of dropping 3px lower.
+ */
+.value {
+  align-self: end;
+  padding-bottom: calc(10px - 0.2em);
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 144, 'SOFT' 30, 'WONK' 0;
+  font-variant-numeric: tabular-nums slashed-zero;
+  font-size: var(--fs-28);
+  line-height: 1;
+  font-weight: 440;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+}
+
+.lg .value {
+  font-size: var(--fs-40);
+}
+
+.value :global(.num),
+.value :global(.num-display) {
+  font-family: inherit;
+  font-size: inherit;
+  font-variation-settings: inherit;
+  letter-spacing: inherit;
+}
+
+.footer {
+  display: flex;
+  align-self: end;
+  align-items: baseline;
+  min-height: 18px;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  font-size: var(--fs-12);
+}
+
+.delta {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.good {
+  color: var(--save);
+}
+
+.bad {
+  color: var(--cost);
+}
+
+/* Counts (requests, sessions, prompts) move without being better or worse. */
+.neutral {
+  color: var(--ink-2);
+}
+
+.deltaLabel,
+.sub {
+  color: var(--ink-3);
+}
+
+.note {
+  color: var(--ink-2);
+}

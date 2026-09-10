@@ -1,0 +1,21 @@
+/** Barrel for core: parser, pricing, cost, db. */
+export * from './types.js';
+export * from './store.js';
+export * from './jsonl.js';
+export * from './discover.js';
+export { parseTranscript, parseSession, cleanPrompt, resolveTitle } from './parse/index.js';
+export type { ParseTranscriptOptions, TitleInput, ResolvedTitle } from './parse/index.js';
+export * from './pricing/defaults.js';
+export * from './pricing/resolve.js';
+export * from './pricing/money.js';
+export * from './pricing/format.js';
+export * from './pricing/schema.js';
+export * from './settings.js';
+export * from './cost/attribution.js';
+export * from './cost/price-at-read.js';
+export * from './cost/insights.js';
+export * from './cost/plan.js';
+export * from './cost/reported.js';
+export { createStore } from './db/store.js';
+export { runIndex, indexChangedFiles } from './db/indexer.js';
+export { openDatabase, SCHEMA_VERSION, SqliteFeatureError, FTS5_REQUIRED_MESSAGE } from './db/schema.js';

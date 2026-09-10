@@ -1,0 +1,161 @@
+/*
+ * Design tokens — "The Ledger".
+ * Palette blocks are parsed by tests/web/tokens.test.ts; keep the selectors and
+ * the `--name: value;` one-per-line shape when editing.
+ */
+
+/* ── Palette: paper (light) ───────────────────────────────────────────── */
+:root,
+[data-theme='paper'] {
+  color-scheme: light;
+  --paper: #F4EFE6;
+  --paper-2: #FBF8F2;
+  --paper-3: #EAE3D5;
+  --ink: #17150F;
+  --ink-2: #4A463D;
+  --ink-3: #6B6457;
+  --rule: rgba(23, 21, 15, 0.14);
+  --rule-strong: rgba(23, 21, 15, 0.36);
+  --focus: #1F5FBF;
+  --cost: #B42318;
+  --save: #1F7A5C;
+  --warn: #8A5C00;
+  --info: #1F5FBF;
+  --m-opus: #3B3B98;
+  --m-sonnet: #19706E;
+  --m-haiku: #8A5A12;
+  --m-fable: #8B1E3F;
+  --m-mythos: #5E2B97;
+  --m-other: #666666;
+  --t-output: #17150F;
+  --t-input: #B42318;
+  --t-cache-write: #A9670F;
+  --t-cache-read: #3F857A;
+  --scrim: rgba(23, 21, 15, 0.34);
+  --selection: rgba(31, 95, 191, 0.22);
+  --heat-0: #A07C66;
+  --heat-1: #A56653;
+  --heat-2: #AA503F;
+  --heat-3: #AF392C;
+  --heat-4: #B42318;
+}
+
+/* ── Palette: slate (dark) ────────────────────────────────────────────── */
+[data-theme='slate'] {
+  color-scheme: dark;
+  --paper: #111318;
+  --paper-2: #181B22;
+  --paper-3: #0C0E12;
+  --ink: #EDE7DB;
+  --ink-2: #BDB6A7;
+  --ink-3: #948D80;
+  --rule: rgba(237, 231, 219, 0.14);
+  --rule-strong: rgba(237, 231, 219, 0.38);
+  --focus: #7AA7F0;
+  --cost: #F0665C;
+  --save: #48C596;
+  --warn: #E3B341;
+  --info: #7AA7F0;
+  --m-opus: #8C8CF0;
+  --m-sonnet: #4FC7C2;
+  --m-haiku: #D9A93B;
+  --m-fable: #F08098;
+  --m-mythos: #B98CF0;
+  --m-other: #A9A296;
+  --t-output: #EDE7DB;
+  --t-input: #F0665C;
+  --t-cache-write: #E39A4A;
+  --t-cache-read: #7FC7BA;
+  --scrim: rgba(6, 7, 10, 0.62);
+  --selection: rgba(122, 167, 240, 0.28);
+  --heat-0: #9C5B50;
+  --heat-1: #B15E53;
+  --heat-2: #C66156;
+  --heat-3: #DB6359;
+  --heat-4: #F0665C;
+}
+
+/* `data-theme="system"` follows the OS. Same values as [data-theme='slate']
+   (the test asserts the two blocks stay identical). */
+@media (prefers-color-scheme: dark) {
+  [data-theme='system'] {
+    color-scheme: dark;
+    --paper: #111318;
+    --paper-2: #181B22;
+    --paper-3: #0C0E12;
+    --ink: #EDE7DB;
+    --ink-2: #BDB6A7;
+    --ink-3: #948D80;
+    --rule: rgba(237, 231, 219, 0.14);
+    --rule-strong: rgba(237, 231, 219, 0.38);
+    --focus: #7AA7F0;
+    --cost: #F0665C;
+    --save: #48C596;
+    --warn: #E3B341;
+    --info: #7AA7F0;
+    --m-opus: #8C8CF0;
+    --m-sonnet: #4FC7C2;
+    --m-haiku: #D9A93B;
+    --m-fable: #F08098;
+    --m-mythos: #B98CF0;
+    --m-other: #A9A296;
+    --t-output: #EDE7DB;
+    --t-input: #F0665C;
+    --t-cache-write: #E39A4A;
+    --t-cache-read: #7FC7BA;
+    --scrim: rgba(6, 7, 10, 0.62);
+    --selection: rgba(122, 167, 240, 0.28);
+    --heat-0: #9C5B50;
+    --heat-1: #B15E53;
+    --heat-2: #C66156;
+    --heat-3: #DB6359;
+    --heat-4: #F0665C;
+  }
+}
+
+/* ── Non-palette tokens ───────────────────────────────────────────────── */
+:root {
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 20px;
+  --s6: 24px;
+  --s7: 28px;
+  --s8: 32px;
+
+  --r1: 2px;
+  --r2: 4px;
+  --r3: 8px;
+
+  --font-display: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+  --font-ui: 'Geist Variable', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --fs-12: 12px;
+  --fs-13: 13px;
+  --fs-14: 14px;
+  --fs-16: 16px;
+  --fs-20: 20px;
+  --fs-28: 28px;
+  --fs-40: 40px;
+  --fs-56: 56px;
+
+  --lh-body: 1.45;
+  --lh-display: 1.1;
+
+  --dur: 160ms;
+  --dur-fast: 110ms;
+  --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+
+  --elevation: 0 12px 32px rgba(0, 0, 0, 0.18);
+  --ring: 0 0 0 1px var(--rule-strong) inset;
+
+  --topbar-h: 48px;
+  --rail-w: 264px;
+  --rail-w-collapsed: 56px;
+  --inspector-w: 320px;
+  --row-h: 36px;
+  --row-h-dense: 28px;
+  --content-max: 1180px;
+}
