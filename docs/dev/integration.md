@@ -64,6 +64,7 @@ what lets the browser on the Vite port talk to the API on 4141.
 | `CCA_DEV` | unset | `1` puts the server in dev mode: the Vite origin (port 5173) joins the Host/Origin allow-lists. |
 | `CCA_DEV_ORIGINS` | unset | extra comma-separated dev origins, e.g. `http://127.0.0.1:5174,http://localhost:5174`, for a second dev server. Only read when `CCA_DEV=1`; entries that are not `http(s)` URLs on a loopback host **with an explicit port** are dropped, so a typo can never open the server to a routable address. |
 | `CCA_ALLOW_UNAUTH_STATUS` | unset | `1` exempts `GET /api/status` from the session-cookie check. Used by `playwright.config.ts` to wait for the server before the browser has authenticated. Nothing else is ever exempt. |
+| `CCA_EMBED_ORIGINS` | unset | Comma-separated loopback parent origins allowed to embed this app in an iframe, e.g. `http://127.0.0.1:3000,http://localhost:3000` for a local productivity dashboard on port 3000. Relaxes CSP `frame-ancestors` only; Host/Origin/CORS rules are unchanged. Unset keeps `frame-ancestors 'none'`. |
 
 ## Ports used by this repo
 

@@ -1,4 +1,5 @@
 import { afterEach, describe, expect, it } from 'vitest';
+import { parseLoopbackOriginUrls } from '../../server/auth.js';
 import { authedCookieHeader, buildTestApp, jsonBody, type TestApp } from './helpers.js';
 
 describe('auth', () => {
@@ -115,6 +116,27 @@ describe('auth', () => {
     expect(res.status).toBe(403);
   });
 
+  it('sets frame-ancestors none by default', async () => {
+    ctx = buildTestApp();
+    const res = await ctx.app.request('/', { headers: { host: `127.0.0.1:${ctx.port}` } });
+    const csp = res.headers.get('content-security-policy') ?? '';
+    expect(csp).toContain("frame-ancestors 'none'");
+  });
+
+  it('allows configured loopback embed origins in CSP', async () => {
+    const original = process.env.CCA_EMBED_ORIGINS;
+    process.env.CCA_EMBED_ORIGINS = 'http://127.0.0.1:3000, http://localhost:3000';
+    try {
+      ctx = buildTestApp();
+      const res = await ctx.app.request('/', { headers: { host: `127.0.0.1:${ctx.port}` } });
+      const csp = res.headers.get('content-security-policy') ?? '';
+      expect(csp).toContain("frame-ancestors 'self' http://127.0.0.1:3000 http://localhost:3000");
+    } finally {
+      if (original === undefined) delete process.env.CCA_EMBED_ORIGINS;
+      else process.env.CCA_EMBED_ORIGINS = original;
+    }
+  });
+
   it('allows the Vite dev origin when dev:true, rejects it otherwise', async () => {
     const devCtx = buildTestApp({ dev: true, port: 4141 });
     try {
@@ -133,5 +155,20 @@ describe('auth', () => {
     } finally {
       prodCtx.cleanup();
     }
+  });
+});
+
+describe('parseLoopbackOriginUrls', () => {
+  it('accepts loopback origins with explicit ports', () => {
+    expect(parseLoopbackOriginUrls('http://127.0.0.1:3000, http://localhost:3000')).toEqual([
+      'http://127.0.0.1:3000',
+      'http://localhost:3000',
+    ]);
+  });
+
+  it('drops non-loopback hosts, missing ports, and garbage', () => {
+    expect(
+      parseLoopbackOriginUrls('http://evil.example.com:3000,http://127.0.0.1,not-a-url,http://127.0.0.1:3000'),
+    ).toEqual(['http://127.0.0.1:3000']);
   });
 });
