@@ -38,6 +38,31 @@ npm start
 Opens `http://127.0.0.1:4141` (macOS auto-opens a browser tab). The first index of a few hundred
 sessions takes seconds; a status pill in the top bar shows progress while it runs.
 
+### Embed in another local dashboard
+
+To show The Ledger inside another loopback app (for example a productivity dashboard on port 3000),
+start the server with parent origins allow-listed and add an iframe tab pointing at this app:
+
+```sh
+CCA_EMBED_ORIGINS=http://127.0.0.1:3000,http://localhost:3000 npm start -- --no-open
+```
+
+In the host app's config:
+
+```json
+{
+  "externalTabs": [
+    { "label": "Cost Analyzer", "url": "http://127.0.0.1:4141", "mode": "iframe" }
+  ]
+}
+```
+
+Only CSP `frame-ancestors` is relaxed; the server still binds `127.0.0.1` only and does not
+emit CORS headers. Non-loopback parent origins are ignored.
+
+Open the host dashboard at `http://127.0.0.1:3000` (not `localhost`) so the iframe can set its
+session cookie — `localhost` and `127.0.0.1` are different sites to the browser.
+
 ### Try it with synthetic data
 
 ```sh

@@ -6,7 +6,7 @@
  */
 import { Hono } from 'hono';
 import { bodyLimit } from 'hono/body-limit';
-import { createAuthState, hostGuard, securityHeaders, sessionAuth } from './auth.js';
+import { createAuthState, hostGuard, parseLoopbackOriginUrls, securityHeaders, sessionAuth } from './auth.js';
 import type { AppDeps } from './deps.js';
 import { analyticsRoutes } from './routes/analytics.js';
 import { authRoutes } from './routes/auth.js';
@@ -43,8 +43,9 @@ function devOrigins(): string {
 export function createApp(deps: AppDeps): Hono {
   const app = new Hono();
   const authState = createAuthState();
+  const embedOrigins = parseLoopbackOriginUrls(process.env.CCA_EMBED_ORIGINS);
 
-  app.use('*', securityHeaders());
+  app.use('*', securityHeaders({ embedOrigins }));
   app.use(
     '/api/*',
     hostGuard({

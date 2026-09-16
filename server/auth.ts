@@ -40,13 +40,13 @@ export function createAuthState(): AuthState {
 const LOOPBACK_HOSTNAMES = new Set(['127.0.0.1', 'localhost', '[::1]', '::1']);
 
 /**
- * Parses `CCA_DEV_ORIGINS` into `host:port` entries. Anything that is not an `http(s)` URL on a
- * loopback host with an explicit port is dropped silently — a typo must never widen the
- * allow-list to a routable address.
+ * Parses comma-separated `http(s)` URLs on loopback hosts with an explicit port. Anything else
+ * is dropped silently — a typo must never widen an allow-list to a routable address. Used by
+ * `CCA_DEV_ORIGINS` (Host/Origin checks) and `CCA_EMBED_ORIGINS` (CSP `frame-ancestors`).
  */
-function extraDevHosts(value: string | undefined): string[] {
+export function parseLoopbackOriginUrls(value: string | undefined): string[] {
   if (!value) return [];
-  const hosts: string[] = [];
+  const origins: string[] = [];
   for (const raw of value.split(',')) {
     const entry = raw.trim();
     if (entry.length === 0) continue;
@@ -59,9 +59,14 @@ function extraDevHosts(value: string | undefined): string[] {
     if (url.protocol !== 'http:' && url.protocol !== 'https:') continue;
     if (!LOOPBACK_HOSTNAMES.has(url.hostname)) continue;
     if (url.port === '') continue;
-    hosts.push(`${url.hostname}:${url.port}`);
+    origins.push(`${url.protocol}//${url.hostname}:${url.port}`);
   }
-  return hosts;
+  return origins;
+}
+
+/** `host:port` entries for the Host header allow-list, derived from loopback origin URLs. */
+function extraDevHosts(value: string | undefined): string[] {
+  return parseLoopbackOriginUrls(value).map((origin) => new URL(origin).host);
 }
 
 function allowedHosts(opts: AuthOptions): Set<string> {
@@ -140,17 +145,32 @@ export function sessionAuth(state: AuthState, env: NodeJS.ProcessEnv = process.e
   };
 }
 
-const CSP =
-  "default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; " +
-  "script-src 'self'; connect-src 'self'; frame-ancestors 'none'";
+export interface SecurityHeadersOptions {
+  /**
+   * Loopback parent origins that may embed this app in an iframe (`CCA_EMBED_ORIGINS`). When
+   * empty, `frame-ancestors 'none'` keeps the default standalone-only posture.
+   */
+  embedOrigins?: string[];
+}
+
+function contentSecurityPolicy(embedOrigins: string[]): string {
+  const frameAncestors =
+    embedOrigins.length === 0 ? "'none'" : `'self' ${embedOrigins.join(' ')}`;
+  return (
+    "default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; " +
+    `script-src 'self'; connect-src 'self'; frame-ancestors ${frameAncestors}`
+  );
+}
 
 /** Security headers for every response. `Cache-Control: no-store` is limited to `/api/*`. */
-export function securityHeaders(): MiddlewareHandler {
+export function securityHeaders(opts: SecurityHeadersOptions = {}): MiddlewareHandler {
+  const embedOrigins = opts.embedOrigins ?? [];
+  const csp = contentSecurityPolicy(embedOrigins);
   return async (c: Context, next: Next) => {
     await next();
     c.header('X-Content-Type-Options', 'nosniff');
     c.header('Referrer-Policy', 'no-referrer');
-    c.header('Content-Security-Policy', CSP);
+    c.header('Content-Security-Policy', csp);
     if (new URL(c.req.url).pathname.startsWith('/api')) {
       c.header('Cache-Control', 'no-store');
     }

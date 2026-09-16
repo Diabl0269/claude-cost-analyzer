@@ -165,6 +165,10 @@ authorization problem (there is exactly one "user").
 
 **Threats considered and controls:**
 
+- *Another loopback app embedding this UI in an iframe* — opt-in via `CCA_EMBED_ORIGINS`
+  (comma-separated loopback parent origins, e.g. `http://127.0.0.1:3000`). Relaxes CSP
+  `frame-ancestors` only; does not add CORS or widen Host/Origin checks. Unset keeps
+  `frame-ancestors 'none'`.
 - *Cross-site request from a page the user has open, or DNS rebinding to `127.0.0.1`* — `hostGuard`
   requires an exact `Host` match against `127.0.0.1:<port>` / `localhost:<port>` (plus the Vite dev
   origin only when `CCA_DEV=1`); rejects any `Sec-Fetch-Site` other than `same-origin`/`none`; and
